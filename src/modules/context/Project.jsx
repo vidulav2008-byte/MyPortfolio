@@ -1,50 +1,58 @@
-import {Container,Card,CardContent,Typography,Grid} from "@mui/material";
+import { Container, Card, CardContent, Typography, Grid } from "@mui/material";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
-function ProjectCard({title,description}) {
-  const { darkMode } = useContext(ThemeContext);
+
+function ProjectCard({ title, description }) {
   return (
-      <Card sx={{maxWidth:600}}>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body" color="text.secondary">
-            {description} 
-            Brief description of the project goes here. This included presentation and hackathons too.</Typography>  
-        </CardContent>
+    <Card sx={{ maxWidth:"100%",height:"100%"}}>
+      <CardContent>
+        <Typography gutterBottom variant="h5">
+          {title}
+        </Typography>
+
+        <Typography variant="body2" color="text.secondary">
+          {description} 
+        </Typography>
+      </CardContent>
     </Card>
   );
 }
+
 const projects = [
   {
-  title: "Presentation on carbon emission",
-  description: "due to technologies"
-},
-{
-title:"Dehydration detection System",
-description: "a project with the help of machine learning"
-},
+    title: "Presentation on carbon emission",
+    description: "Due to technologies"
+  },
+  {
+    title: "Dehydration detection system",
+    description: "A project with the help of machine learning"
+  }
 ];
 
-function Project()
-{
-  return(
-    <Container sx={{
+function Project() {
+  const { darkMode } = useContext(ThemeContext);
+
+  return (
+    <Container
+      sx={{
         mt: 8,
         minHeight: "100vh",
         backgroundColor: darkMode ? "#000" : "#fff",
         color: darkMode ? "#fff" : "#000",
-      }}>
-      <Grid Container spacing ={4}>
-        {projects.map((projects,index)=>(
-            <Grid item size={{xs:12,sm:6,md:4}}>
-              <ProjectCard title={projects.title} description={projects.description}/>
-            </Grid>
-        ))
-}
+      }}
+    >
+      <Grid container spacing={4}>
+        {projects.map((project, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+            />
+          </Grid>
+        ))}
       </Grid>
     </Container>
   );
 }
+
 export default Project;

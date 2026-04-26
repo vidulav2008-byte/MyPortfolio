@@ -14,9 +14,9 @@ function About() {
       }}
     >
         <Typography variant="h3">About Me</Typography>
-        <Typography variamt ="h4">
+        <Typography variant="h4">
           I'm Vidula currently pursuing my b.tech degree in Chemical Engineering at Coimbatore Institute of Technology.
-          I'm intersted in learning new things that too in this technology world.
+          I'm interested in learning new things that too in this technology world.
         </Typography>
         <Button variant="contained" color="primary" href="/project">
                  view my projects</Button>
